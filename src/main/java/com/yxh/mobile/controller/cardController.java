@@ -32,7 +32,7 @@ public class cardController {
 
     @PostMapping("/login")
     @ResponseBody
-    public Map login(cardInfo cardInfo, String vc, HttpSession session) {
+    public Map login(String number,String password, String vc, HttpSession session) {
         String verifyCode = (String) session.getAttribute("verify_code");
         Map result = new HashMap();
         if (vc == null || verifyCode == null || !vc.equalsIgnoreCase(verifyCode)) {
@@ -40,8 +40,8 @@ public class cardController {
             result.put("message", "验证码错误");
         } else {
             try {
-                cardInfo cardInfo1 = cardService.loginCheck(cardInfo);
-                session.setAttribute("login_user", cardInfo1);
+                cardInfo cardInfo = cardService.loginCheck(number,password);
+                session.setAttribute("login_user", cardInfo);
                 result.put("code", "0");
                 result.put("message", "success");
             } catch (BusinessException e) {

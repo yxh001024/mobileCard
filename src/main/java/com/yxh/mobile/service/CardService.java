@@ -3,7 +3,7 @@ package com.yxh.mobile.service;
 import com.yxh.mobile.entity.cardInfo;
 
 public interface CardService {
-    cardInfo loginCheck(cardInfo cardInfo);
+    cardInfo loginCheck(String num,String password);
 
-    cardInfo createCard(cardInfo cardInfo);
+    cardInfo createCard(cardInfo cardInfo,String rePW);
 }

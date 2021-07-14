@@ -15,12 +15,5 @@ public class CardServiceImplTest {
     @Resource
     private CardService cardService;
 
-    @Test
-    public void exists() {
-        cardInfo cardInfo = new cardInfo();
-        cardInfo.setId(1l);
-        cardInfo.setNumber("13790556210");
-        System.out.println(cardService.loginCheck(cardInfo));
 
-    }
 }

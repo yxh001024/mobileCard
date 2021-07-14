@@ -1,32 +1,37 @@
 package com.yxh.mobile.entity;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 import java.util.Date;
 
 public class cardInfo {
     private Long id;
-
+    @NotBlank(message = "号码不能为空")
+    @Pattern(regexp = "[1][0-9]{10}",message = "号码有误")
     private String number;
 
     private String username;
-
+    @NotBlank(message = "密码不能为空")
     private String password;
-
+    @NotNull(message = "请选择套餐")
     private Long packageId;
-
+    @NotNull(message = "月租异常")
     private Integer rent;
-
+    @NotNull(message = "余额异常")
     private Double money;
-
+    @NotNull
     private Integer talk;
-
+    @NotNull
     private Integer sms;
-
+    @NotNull
     private Integer flow;
 
     private Date createTime;
 
     private String state;
-
+    @NotNull
     private Integer salt;
 
     public Long getId() {
